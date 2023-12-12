@@ -22,14 +22,18 @@
         }
 
         #ohshitFX {
-            height: 100px;
-            width: 200px;
+            padding: 20px;
             font-size: 50px;
             border-radius: 12px;
+            border: solid 2px;
         }
 
-        button:hover {
+        #ohshitFX:hover {
             cursor: pointer;
+        }
+
+        #ohshitFX:active {
+            background-color: gray;
         }
 
         #poop{
@@ -47,7 +51,7 @@
         }
 
     </style>
-    <button onclick="playAudio()" id="ohshitFX">Oh Shit!</button>
+    <div onclick="playAudio()" id="ohshitFX">Oh Shit!</div>
     <div id="poop"></div>
 
     <script>
