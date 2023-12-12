@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @keyframes poopOut {
+            0% {opacity: 20%; scale: 0.5;}
+            50% {opacity: 60%;}
+            100% {opacity: 0%; scale: 5;}
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        #ohshitFX {
+            height: 100px;
+            width: 200px;
+            font-size: 50px;
+            border-radius: 12px;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        #poop{
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .poopImg {
+            position: fixed;
+            width: 100px;
+            animation: poopOut 0.7s linear forwards;
+            pointer-events: none;
+        }
+
+    </style>
+    <button onclick="playAudio()" id="ohshitFX">Oh Shit!</button>
+    <div id="poop"></div>
+
+    <script>
+        var ohshit = new Audio('Oh Shit! Sound Effect.mp3');
+        function poopOut() {
+            var poopImg = document.createElement('img');
+            poopImg.src = 'poop.png';
+            poopImg.className = 'poopImg';
+            document.getElementById('poop').appendChild(poopImg);
+            setTimeout(() => {
+                console.log('Animation Done');
+                poopImg.remove();
+            }, 700);
+        }
+
+        function playAudio() {
+            if(ohshit.ended) {
+                ohshit.play();   
+                poopOut();           
+            } else {
+                ohshit.load();
+                ohshit.play();
+                poopOut();
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
